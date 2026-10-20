@@ -1,0 +1,56 @@
+# ==============================================================================
+# Robots.txt for Astana Avocado Indonesia
+# Nursery & Penyedia Bibit Alpukat Unggulan Nganjuk, Jawa Timur
+# Website Resmi: https://astanaavocado.com/
+# Terakhir Diperbarui: 2026-10-20
+# ==============================================================================
+
+# Aturan Umum untuk Seluruh Web Crawler & Search Engine
+User-agent: *
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /varietas/
+Allow: /blog/
+
+# Cegah Pengindeksan Berkas Teknis Internal & Dokumentasi Pengembang
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /*.log$
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /backup/
+
+# Crawler Utama Google (Googlebot) - Akses Render JavaScript & CSS Penuh
+User-agent: Googlebot
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Crawler Khusus Gambar Google (Googlebot-Image) - Indeks Foto Buah & Bibit
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /
+
+# Crawler Microsoft Bing (Bingbot)
+User-agent: Bingbot
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# AI Search & Answer Engine Crawlers (Tingkatkan Visibilitas Rekomendasi AI)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Lokasi Peta Situs Resmi (XML Sitemap) & Host Utama
+Host: https://astanaavocado.com
+Sitemap: https://astanaavocado.com/sitemap.xml
