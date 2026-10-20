@@ -455,9 +455,9 @@ a:hover {
 }
 
 .btn-astana-wa {
-  background-color: #25D366;
-  color: #FFFFFF;
-  border: 1px solid #25D366;
+  background-color: #177339;
+  color: #FFFFFF !important;
+  border: 1px solid #177339;
   font-family: var(--font-heading);
   font-weight: 600;
   padding: 0.65rem 1.3rem;
@@ -466,13 +466,13 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 4px 14px rgba(23, 115, 57, 0.28);
 }
 
 .btn-astana-wa:hover {
-  background-color: #1EBE5D;
-  border-color: #1EBE5D;
-  color: #FFFFFF;
+  background-color: #125b2d;
+  border-color: #125b2d;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
 }
@@ -560,7 +560,7 @@ a:hover {
 }
 
 .btn-hero-action {
-  background: #E67E22;
+  background: #BA4D00;
   color: #FFFFFF !important;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -568,7 +568,7 @@ a:hover {
   padding: 0.82rem 2.4rem;
   border-radius: var(--radius-pill);
   border: none;
-  box-shadow: 0 6px 22px rgba(230, 126, 34, 0.45);
+  box-shadow: 0 6px 22px rgba(186, 77, 0, 0.45);
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -577,10 +577,10 @@ a:hover {
 }
 
 .btn-hero-action:hover {
-  background: #D35400;
+  background: #9E3E00;
   color: #FFFFFF !important;
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(230, 126, 34, 0.6);
+  box-shadow: 0 10px 30px rgba(186, 77, 0, 0.6);
 }
 
 /* Circular Translucent Navigation Arrows */
@@ -1585,13 +1585,28 @@ a:hover {
 }
 
 .testimoni-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
+  position: relative;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background-color: #BDC3C7;
   border: none;
-  margin: 0 5px;
+  margin: 0 8px;
+  padding: 0;
+  cursor: pointer;
   transition: all 0.25s ease;
+}
+
+.testimoni-indicators [data-bs-target]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .testimoni-indicators .active {
@@ -2276,4 +2291,60 @@ body.nav-drawer-open .main-navbar {
     animation: none;
     display: none;
   }
+}
+
+/* ==========================================================================
+   Accessibility & Lighthouse Optimizations (WCAG AA & Touch Targets)
+   ========================================================================== */
+
+/* Carousel Indicators Touch Targets (Min 48px for Lighthouse) */
+.carousel-indicators [data-bs-target] {
+  position: relative;
+  min-height: 10px;
+  margin-left: 6px;
+  margin-right: 6px;
+  box-sizing: content-box;
+}
+
+.carousel-indicators [data-bs-target]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Outline Success Button High Contrast */
+.btn-outline-success {
+  color: #1a572c !important;
+  border-color: #1a572c !important;
+  font-weight: 600;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+  background-color: #1a572c !important;
+  border-color: #1a572c !important;
+  color: #ffffff !important;
+}
+
+/* Verified Buyer Badge High Contrast */
+.testimoni-card .badge.bg-success {
+  color: #0e4420 !important;
+  background-color: #d1ecd9 !important;
+  border-color: #8ed0a1 !important;
+  font-weight: 600;
+}
+
+/* Footer Contrast Improvement (WCAG AA > 7:1) */
+.site-footer .text-white-50,
+.site-footer p.text-white-50,
+.site-footer span.text-white-50,
+.site-footer small.text-white-50,
+.site-footer a.text-white-50 {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
